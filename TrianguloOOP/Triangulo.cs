@@ -20,11 +20,11 @@
                     LadoX = Convert.ToInt32(Console.ReadLine());
                     continuar = false;
                 }
-                catch(FormatException) 
+                catch (FormatException)
                 {
                     Program.ColorirMensagem("\n>> Formato inválido, tente novamente: ", "NAO-QUEBRAR-LINHA", ConsoleColor.Red);
                     continuar = true;
-                }               
+                }
             }
 
             continuar = true;
@@ -65,37 +65,44 @@
         }
         public bool ValidarTriangulo()
         {
-            bool ehValido = false;
+            bool ehInvalido = false;
+
             if (LadoX >= LadoY + LadoZ)
             {
                 Program.ColorirMensagem("\n>> Triângulo Inválido.", "QUEBRAR-LINHA", ConsoleColor.Red);
-                ehValido = true;
+                ehInvalido = true;
             }
 
             else if (LadoY >= LadoX + LadoZ)
             {
                 Program.ColorirMensagem("\n>> Triângulo Inválido.", "QUEBRAR-LINHA", ConsoleColor.Red);
-                ehValido = true;
+                ehInvalido = true;
             }
 
             else if (LadoZ >= LadoX + LadoY)
             {
                 Program.ColorirMensagem("\n>> Triângulo Inválido.", "QUEBRAR-LINHA", ConsoleColor.Red);
-                ehValido = true;
+                ehInvalido = true;
             }
 
-            return ehValido;
+            else if (LadoX == 0 || LadoY == 0 || LadoZ == 0)
+            {
+                Program.ColorirMensagem("\n>> Triangulo não pode ser 0.", "QUEBRAR-LINHA", ConsoleColor.Red);
+                ehInvalido = true;
+            }
+
+            return ehInvalido;
         }
         public void EncontrarTipoTriangulo()
         {
             if (LadoX != LadoY && LadoX != LadoZ && LadoY != LadoZ)
-                Program.ColorirMensagem(">> Triângulo escaleno", "QUEBRAR-LINHA", ConsoleColor.Green);
+                Program.ColorirMensagem("\n>> Triângulo escaleno", "QUEBRAR-LINHA", ConsoleColor.Green);
             else if (LadoX == LadoY && LadoX == LadoZ && LadoY == LadoZ)
-                Program.ColorirMensagem(">> Triângulo equilátero", "QUEBRAR-LINHA", ConsoleColor.Green);
+                Program.ColorirMensagem("\n>> Triângulo equilátero", "QUEBRAR-LINHA", ConsoleColor.Green);
             else if (LadoX == LadoY || LadoX == LadoZ || LadoY == LadoZ)
-                Program.ColorirMensagem(">> Triângulo isóceles", "QUEBRAR-LINHA", ConsoleColor.Green);
+                Program.ColorirMensagem("\n>> Triângulo isóceles", "QUEBRAR-LINHA", ConsoleColor.Green);
             else
-                Program.ColorirMensagem(">> Triângulo Inválido", "QUEBRAR-LINHA", ConsoleColor.Red);
+                Program.ColorirMensagem("\n>> Triângulo Inválido", "QUEBRAR-LINHA", ConsoleColor.Red);
         }
     }
 }

@@ -11,8 +11,10 @@
             ColorirMensagem("\n>> A medida de um dos lados deve ser menor que a soma dos outros dois lados", "QUEBRAR-LINHA", ConsoleColor.Yellow);
 
             triangulo.ObterLados();
-            if (triangulo.ValidarTriangulo() == true)
+
+            if (triangulo.ValidarTriangulo())
                 Environment.Exit(0);
+
 
             triangulo.EncontrarTipoTriangulo();          
         }
