@@ -1,7 +1,4 @@
-﻿using System;
-using System.Text;
-
-namespace TrianguloOOP
+﻿namespace TrianguloOOP
 {
     internal class Triangulo
     {
@@ -25,7 +22,7 @@ namespace TrianguloOOP
                 }
                 catch(FormatException) 
                 {
-                    Console.Write("\n>> Formato inválido, tente novamente: ");
+                    Program.ColorirMensagem("\n>> Formato inválido, tente novamente: ", "NAO-QUEBRAR-LINHA", ConsoleColor.Red);
                     continuar = true;
                 }               
             }
@@ -43,7 +40,7 @@ namespace TrianguloOOP
                 }
                 catch (FormatException)
                 {
-                    Console.Write("\n>> Formato inválido, tente novamente: ");
+                    Program.ColorirMensagem("\n>> Formato inválido, tente novamente: ", "NAO-QUEBRAR-LINHA", ConsoleColor.Red);
                     continuar = true;
                 }
             }
@@ -61,7 +58,7 @@ namespace TrianguloOOP
                 }
                 catch (FormatException)
                 {
-                    Console.Write("\n>> Formato inválido, tente novamente: ");
+                    Program.ColorirMensagem("\n>> Formato inválido, tente novamente: ", "NAO-QUEBRAR-LINHA", ConsoleColor.Red);
                     continuar = true;
                 }
             }
@@ -71,19 +68,19 @@ namespace TrianguloOOP
             bool ehValido = false;
             if (LadoX >= LadoY + LadoZ)
             {
-                Console.WriteLine(">> Triângulo Inválido.");
+                Program.ColorirMensagem("\n>> Triângulo Inválido.", "QUEBRAR-LINHA", ConsoleColor.Red);
                 ehValido = true;
             }
 
             else if (LadoY >= LadoX + LadoZ)
             {
-                Console.WriteLine(">> Triângulo Inválido.");
+                Program.ColorirMensagem("\n>> Triângulo Inválido.", "QUEBRAR-LINHA", ConsoleColor.Red);
                 ehValido = true;
             }
 
             else if (LadoZ >= LadoX + LadoY)
             {
-                Console.WriteLine(">> Triângulo Inválido.");
+                Program.ColorirMensagem("\n>> Triângulo Inválido.", "QUEBRAR-LINHA", ConsoleColor.Red);
                 ehValido = true;
             }
 
@@ -92,13 +89,13 @@ namespace TrianguloOOP
         public void EncontrarTipoTriangulo()
         {
             if (LadoX != LadoY && LadoX != LadoZ && LadoY != LadoZ)
-                Console.WriteLine(">> Triângulo escaleno");
+                Program.ColorirMensagem(">> Triângulo escaleno", "QUEBRAR-LINHA", ConsoleColor.Green);
             else if (LadoX == LadoY && LadoX == LadoZ && LadoY == LadoZ)
-                Console.WriteLine(">> Triângulo equilátero");
+                Program.ColorirMensagem(">> Triângulo equilátero", "QUEBRAR-LINHA", ConsoleColor.Green);
             else if (LadoX == LadoY || LadoX == LadoZ || LadoY == LadoZ)
-                Console.WriteLine(">> Triângulo isóceles");
+                Program.ColorirMensagem(">> Triângulo isóceles", "QUEBRAR-LINHA", ConsoleColor.Green);
             else
-                Console.WriteLine(">> Triângulo Inválido");
+                Program.ColorirMensagem(">> Triângulo Inválido", "QUEBRAR-LINHA", ConsoleColor.Red);
         }
     }
 }
